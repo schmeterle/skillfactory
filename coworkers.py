@@ -1,7 +1,7 @@
 coworkers = ['Иван', 'Катя', 'Саша', 'Юля', 'Витя']
 print(coworkers[0])
 print(coworkers[-1])
-print(coworkers[:])
+print(coworkers[::2])
 print(coworkers[1::2])
 print(len(coworkers))
 
