@@ -34,7 +34,7 @@ print('''
         9. Изменить ученика
         10. Посмотреть все оценки ученика
         11. Посмотреть средний балл ученика по каждому предмету
-        10. Выход из программы
+        12. Выход из программы
         ''')
 
 while True:
@@ -119,11 +119,10 @@ while True:
         # считываем название предмета
         class_ = input('Введите предмет: ')
         # считываем оценку
-        old_mark = int(input('Введите оценку, которую хотите изменить: '))
+        old_mark = int(input('Введите индекс оценки, которую хотите изменить: '))
         new_mark = int(input('Введите новую оценку: '))
-        if old_mark in students_marks[student][class_]:
-            students_marks[old_mark] = students_marks[new_mark]
-            del (students_marks[student][class_])[old_mark]
+        if student in students_marks.keys() and class_ in students_marks[student].keys():
+            students_marks[old_mark] = new_mark
             print('Оценка изменена')
         else:
             print('Этой оценки нет в списке')
@@ -172,6 +171,6 @@ while True:
                 print(f'{classes} - {marks_sum//marks_count}')
         else:
             print('Этого ученика нет в списке')
-    elif command == 90:
+    elif command == 12:
         print('4. Выход из программы')
         break
