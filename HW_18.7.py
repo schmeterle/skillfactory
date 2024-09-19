@@ -34,7 +34,7 @@ print('''
         9. Изменить ученика
         10. Посмотреть все оценки ученика
         11. Посмотреть средний балл ученика по каждому предмету
-        12. Выход из программы
+        10. Выход из программы
         ''')
 
 while True:
@@ -88,7 +88,7 @@ while True:
         # считываем оценку
         end_mark = int(input('Введите оценку: '))
         if end_mark in students_marks[student][class_]:
-            (students_marks[student][class_]).remove(end_mark)
+            del (students_marks[student][class_])[end_mark]
             print('Оценка удалена')
         else:
             print('Этой оценки нет в списке')
@@ -97,9 +97,9 @@ while True:
         # считываем имя ученика
         student = input('Введите имя ученика: ')
         # считываем название предмета
-        end_class = input('Введите предмет: ')
-        if end_class in students_marks:
-            del students_marks[end_class]
+        old_class = input('Введите предмет для удаления: ')
+        if old_class in (students_marks[student]).keys():
+            del students_marks[student][old_class]
             print('Предмет удален')
         else:
             print('Этого предмета нет в списке')
@@ -107,8 +107,8 @@ while True:
         print('6. Удалить ученика')
         # считываем имя ученика
         end_student = input('Введите имя ученика: ')
-        if end_student in students_mark:
-            del students_mark[end_student]
+        if end_student in students_marks.keys():
+            del students_marks[end_student]
             print('Ученик удален')
         else:
             print('Этого ученика нет в списке')
@@ -119,11 +119,11 @@ while True:
         # считываем название предмета
         class_ = input('Введите предмет: ')
         # считываем оценку
-        mark = int(input('Введите оценку, которую хотите изменить: '))
+        old_mark = int(input('Введите оценку, которую хотите изменить: '))
         new_mark = int(input('Введите новую оценку: '))
-        if student in students_marks[student][class_] and class_ in students_marks[student][class_]:
-            students_marks[mark] = students_marks[new_mark]
-            del students_marks[mark]
+        if old_mark in students_marks[student][class_]:
+            students_marks[old_mark] = students_marks[new_mark]
+            del (students_marks[student][class_])[old_mark]
             print('Оценка изменена')
         else:
             print('Этой оценки нет в списке')
@@ -132,11 +132,11 @@ while True:
         # считываем имя ученика
         student = input('Введите имя ученика: ')
         # считываем название предмета
-        old_class = input('Введите предмет, который хотите изменить: ')
+        end_class = input('Введите предмет, который хотите изменить: ')
         new_class = input('Введите новый предмет: ')
-        if old_class in students_marks:
-            students_marks[old_class] = students_marks[new_class]
-            del students_marks[old_class]
+        if end_class in (students_marks[student]).keys():
+            students_marks[student][new_class] = students_marks[student][end_class]
+            del students_marks[student][end_class]
             print('Предмет изменен')
         else:
             print('Этого предмета нет в списке')
@@ -146,7 +146,7 @@ while True:
         old_student = input('Введите имя ученика, которого хотите изменить: ')
         new_student = input('Введите новое имя: ')
         if old_student in students_marks:
-            students_marks[old_student] = students_marks[new_student]
+            students_marks[new_student] = students_marks[old_student]
             del students_marks[old_student]
             print('Ученик изменен')
         else:
@@ -172,6 +172,6 @@ while True:
                 print(f'{classes} - {marks_sum//marks_count}')
         else:
             print('Этого ученика нет в списке')
-    elif command == 12:
+    elif command == 90:
         print('4. Выход из программы')
         break
