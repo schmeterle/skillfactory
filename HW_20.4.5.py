@@ -26,6 +26,7 @@ while True:
                 max_order = order_num
                 max_price = price
         print(f'Номер заказа с самой большой стоимостью: {max_order}, стоимость заказа: {max_price}')
+        #Номер заказа с самой большой стоимостью: o_182416, стоимость заказа: 29900
 
     elif command == 2:
         print('2. Какой номер заказа с самым большим количеством товаров?')
@@ -37,6 +38,7 @@ while True:
                 max_order = order_num
                 max_quantity = quantity
         print(f'Номер заказа с самым большим количеством товаров: {max_order}, количество товаров: {max_quantity}')
+        #Номер заказа с самым большим количеством товаров: o_182378, количество товаров: 20
 
     elif command == 3:
         print('3. В какой день в июле было сделано больше всего заказов?')
@@ -48,6 +50,7 @@ while True:
             max_value = max(date_dict.values())
             if date_dict[date] == max_value:
                 print(f'Больше всего заказов было сделано в {date}: {date_dict[date]}')
+             #Больше всего заказов было сделано в 2023-30-07: 33   
 
     elif command == 4:
         print('4. Какой пользователь сделал самое большое количество заказов за июль?')
@@ -60,6 +63,7 @@ while True:
             if orders_2 > max_orders:
                 max_orders = orders_2
         print(f'Пользователь: {user_id} сделал наибольшее кол-во заказов: {max_orders}')
+        #Пользователь: 358411 сделал наибольшее кол-во заказов: 1
 
     elif command == 5:
         print('5. У какого пользователя самая большая суммарная стоимость заказов за июль?')
@@ -72,6 +76,7 @@ while True:
             if all_price > max_price:
                 max_price = all_price
         print(f'Пользователь {user_id} имеет самую большую суммарную стоимость заказов за июль: {max_price}')
+        #Пользователь 358411 имеет самую большую суммарную стоимость заказов за июль: 29900
 
     elif command == 6:
         print('6. Какая средняя стоимость заказа была в июле?')
@@ -81,6 +86,7 @@ while True:
             price_sum += orders_data['price']
             price_count = len(orders)
         print(f'Средняя стоимость заказа в июле: {price_sum//price_count}')
+        #Средняя стоимость заказа в июле: 15314
 
     elif command == 7:
         print('7. Какая средняя стоимость товаров в июле?')
@@ -90,6 +96,8 @@ while True:
             price_sum += orders_data['price']
             price_count += orders_data['quantity']
         print(f'Средняя стоимость товаров в июле: {price_sum//price_count}')
+        #Средняя стоимость товаров в июле: 1462
+    
     elif command == 8:
         print('Конец запроса')
         break
